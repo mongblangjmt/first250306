@@ -92,6 +92,7 @@ SDL 검사 속성을 ‘아니요’로 바꿔야 합니다.
 
 - 게임 선택 함수 (메인 함수)
 
+
 int main() {
     int choice;
 
@@ -128,6 +129,8 @@ int main() {
 : printPuzzle 함수는 선택된 문제 번호에 따라 네모네모로직 퍼즐의 힌트를 출력하고 현재 퍼즐 상태를 표시한다.
 
 // 초기 네모네모로직 판을 출력하는 함수
+
+
 void printPuzzle(int puzzle[SIZE][SIZE], int problemNumber) {
     system("cls");  // 화면을 지웁니다 (Windows 환경)
     if (problemNumber == 1) {
@@ -189,12 +192,15 @@ void printPuzzle(int puzzle[SIZE][SIZE], int problemNumber) {
 : toggleCell 함수는 특정 행(row)과 열(col)의 셀을 채우거나 비우는 역할을 한다.
 
 // 특정 행과 열의 칸을 토글하는 함수
+
+
 void toggleCell(int puzzle[SIZE][SIZE], int row, int col) {
     puzzle[row][col] = !puzzle[row][col];
 }
 
 퍼즐 초기화 함수
 : initPuzzle 함수는 퍼즐을 모두 비워 초기 상태로 만든다.
+
 
 void initPuzzle(int puzzle[SIZE][SIZE]) {
     for (int i = 0; i < SIZE; i++) {
@@ -204,12 +210,15 @@ void initPuzzle(int puzzle[SIZE][SIZE]) {
     }
 }
 
+
 네모네모로직 게임 플레이 함수
 : playPicross 함수는 네모네모로직 게임을 실행한다.
 문제 번호를 입력받아 해당 퍼즐을 초기화하고, 사용자가 셀을 토글할 수 있게 한다.
 0 0을 입력하면 프로그램이 종료되고, 0 1을 입력하면 다른 문제로 넘어간다.
 
 //네모네모로직 게임 플레이 함수
+
+
 void playPicross() {
     int puzzle[SIZE][SIZE];
     int row, col;
@@ -255,21 +264,14 @@ void playPicross() {
 }
 
 
-
-
-
-
-
-<네모네모 로직 답지>
-
-
-
 3. 스도쿠 게임
 
 초기 스도쿠 판
 : 0은 빈 칸을 의미한다.
 
 // 초기 스도쿠 판
+
+
 int board[N][N] = {
     {5, 3, 0, 0, 7, 0, 0, 0, 0},
     {6, 0, 0, 1, 9, 5, 0, 0, 0},
@@ -282,10 +284,13 @@ int board[N][N] = {
     {0, 0, 0, 0, 8, 0, 0, 7, 9}
 };
 
+
 스도쿠 출력 함수
 : printSudoku 함수는 스도쿠 보드를 출력한다. 3x3 구역을 시각적으로 구분하기 위해 '|'와 '-'를 사용한다.
 
 // 스도쿠 판 출력 함수
+
+
 void printSudoku() {
     printf("\n     스도쿠 문제   \n");
     printf("----------------------\n");
@@ -309,11 +314,14 @@ void printSudoku() {
     printf("----------------------\n");
 }
 
+
 유효성 검사 함수
 : isValid 함수는 특정 위치에 숫자를 넣을 수 있는지 확인한다.
 행, 열, 그리고 3x3 서브 그리드에서 중복 여부를 검사한다.
 
 // 유효성 검사 함수: 특정 위치에 숫자를 넣을 수 있는지 확인
+
+
 bool isValid(int row, int col, int num) {
     // 같은 행에 중복 확인
     for (int c = 0; c < N; c++) {
@@ -343,10 +351,14 @@ bool isValid(int row, int col, int num) {
     return true; // 유효하다면 true 반환
 }
 
+
+
 랜덤 숫자 변경 함수
 : randomizeNonEmptyCells 함수는 스도쿠 보드의 0이 아닌 셀의 숫자들을 랜덤으로 변경한다. 변경된 숫자는 유효성 검사를 통과해야 한다.
 
 // 랜덤으로 초기 스도쿠 판에 있는 0이 아닌 숫자들을 다른 숫자로 바꾸기
+
+
 void randomizeNonEmptyCells() {
     srand(time(NULL));
 
@@ -366,10 +378,12 @@ void randomizeNonEmptyCells() {
     }
 }
 
+
 스도쿠 게임 플레이 함수
 : playSudoku 함수는 스도쿠 게임을 실행한다.
 사용자에게 행, 열, 그리고 숫자를 입력받아 해당 위치에 숫자를 넣는다.
 사용자가 0 0 0을 입력하면 게임이 종료된다.
+
 
 void playSudoku() {
     randomizeNonEmptyCells(); // 초기 스도쿠 판에 있는 0이 아닌 숫자들을 랜덤하게 바꿈
@@ -398,20 +412,6 @@ void playSudoku() {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-[ 플로우차트 ]
-
 
 
 [ 오류 가능성 ]
